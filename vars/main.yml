@@ -1,0 +1,17 @@
+---
+disk: /dev/sdb
+fsystem: ext4
+partitions:
+  - number: 2
+    start: 1GiB
+    end: 1.8GiB
+
+volume_groups:
+  - name: apache-vg
+    devices: /dev/sdb2
+
+logical_volumes:
+  - name: content-lv
+    size: 256M
+    vgroup: apache-vg
+    mount_path: /apache
